@@ -1,6 +1,6 @@
 //
-//  TopHeadlineController.swift
-//  NewsAppMVVM
+//  EntertainmentController.swift
+//  NewsApp+MVVM
 //
 //  Created by rau4o on 4/8/20.
 //  Copyright © 2020 rau4o. All rights reserved.
@@ -9,12 +9,12 @@
 import UIKit
 import SDWebImage
 
-private let topHeadlineCell = "cellId"
+private let topEntertainmentCellId = "cellId"
 private let rowHeight: CGFloat = 170
 private let spacingBetweenRow: CGFloat = 20
 
-class TopHeadlineController: UIViewController {
-
+class EntertainmentController: UIViewController {
+    
     // MARK: - Properties
     
     let topHeadlineViewModel = TopHeadlineViewModel()
@@ -25,7 +25,7 @@ class TopHeadlineController: UIViewController {
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        collectionView.register(TopHeadlinesViewCell.self, forCellWithReuseIdentifier: topHeadlineCell)
+        collectionView.register(TopHeadlinesViewCell.self, forCellWithReuseIdentifier: topEntertainmentCellId)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
@@ -33,13 +33,13 @@ class TopHeadlineController: UIViewController {
     }()
     
     // MARK: - Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Top Headlines"
+
         layoutUI()
         topHeadlineViewModel.delegate = self
-        topHeadlineViewModel.fetchData(country: "us", category: "general")
+        topHeadlineViewModel.fetchData(country: "us", category: "entertainment")
         view.backgroundColor = .white
     }
     
@@ -54,16 +54,16 @@ class TopHeadlineController: UIViewController {
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
-extension TopHeadlineController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+extension EntertainmentController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return topHeadlineViewModel.numberOfElements()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: topHeadlineCell, for: indexPath) as! TopHeadlinesViewCell
-        cell.backgroundColor = .clear
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: topEntertainmentCellId, for: indexPath) as! TopHeadlinesViewCell
         let news = topHeadlineViewModel.getElement(at: indexPath.item)
+        
         cell.configureCell(articles: news)
         if let imageUrl = news.urlImage {
             cell.imageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "placeholder"))
@@ -82,14 +82,14 @@ extension TopHeadlineController: UICollectionViewDelegate, UICollectionViewDataS
 
 // MARK: - TopHeadlineViewModelDelegate, TopHeadlineControllerDelegate
 
-extension TopHeadlineController: TopHeadlineViewModelDelegate {
+extension EntertainmentController: TopHeadlineViewModelDelegate {
     func updateTopHeadlineData() {
         collectionView.reloadData()
     }
 }
 
-extension TopHeadlineController: TopHeadlineControllerDelegate {
+extension EntertainmentController: TopHeadlineControllerDelegate {
     func updateData() {
-        topHeadlineViewModel.fetchData(country: "us", category: "general")
+        topHeadlineViewModel.fetchData(country: "us", category: "entertainment")
     }
 }

@@ -23,6 +23,10 @@
 		AE3614E2243DF48500D3F7E4 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3614E0243DF48500D3F7E4 /* WebService.swift */; };
 		AE3614E7243DF49600D3F7E4 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3614E4243DF49600D3F7E4 /* UIView+Extension.swift */; };
 		AE3614E8243DF49600D3F7E4 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3614E6243DF49600D3F7E4 /* MainTabBar.swift */; };
+		AE3614EB243DFA9F00D3F7E4 /* MainBMOController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3614EA243DFA9F00D3F7E4 /* MainBMOController.swift */; };
+		AE3614EE243DFD5200D3F7E4 /* EntertainmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3614ED243DFD5200D3F7E4 /* EntertainmentController.swift */; };
+		AE3614F0243E025100D3F7E4 /* SportsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3614EF243E025100D3F7E4 /* SportsController.swift */; };
+		AE3614F2243E050200D3F7E4 /* TechnologyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3614F1243E050200D3F7E4 /* TechnologyController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		AE3614E0243DF48500D3F7E4 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		AE3614E4243DF49600D3F7E4 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		AE3614E6243DF49600D3F7E4 /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		AE3614EA243DFA9F00D3F7E4 /* MainBMOController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBMOController.swift; sourceTree = "<group>"; };
+		AE3614ED243DFD5200D3F7E4 /* EntertainmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntertainmentController.swift; sourceTree = "<group>"; };
+		AE3614EF243E025100D3F7E4 /* SportsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsController.swift; sourceTree = "<group>"; };
+		AE3614F1243E050200D3F7E4 /* TechnologyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnologyController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +150,7 @@
 		AE3614CC243DF40D00D3F7E4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				AE3614E9243DFA7500D3F7E4 /* CustomBMOPage */,
 				AE3614E3243DF49600D3F7E4 /* Extension */,
 				AE3614E5243DF49600D3F7E4 /* TabBar */,
 			);
@@ -187,6 +196,9 @@
 			isa = PBXGroup;
 			children = (
 				AE3614D6243DF45B00D3F7E4 /* TopHeadlineController.swift */,
+				AE3614ED243DFD5200D3F7E4 /* EntertainmentController.swift */,
+				AE3614EF243E025100D3F7E4 /* SportsController.swift */,
+				AE3614F1243E050200D3F7E4 /* TechnologyController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -220,6 +232,14 @@
 				AE3614E6243DF49600D3F7E4 /* MainTabBar.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		AE3614E9243DFA7500D3F7E4 /* CustomBMOPage */ = {
+			isa = PBXGroup;
+			children = (
+				AE3614EA243DFA9F00D3F7E4 /* MainBMOController.swift */,
+			);
+			path = CustomBMOPage;
 			sourceTree = "<group>";
 		};
 		F46316497D765A5E27177CB3 /* Frameworks */ = {
@@ -345,15 +365,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE3614EE243DFD5200D3F7E4 /* EntertainmentController.swift in Sources */,
 				AE3614E8243DF49600D3F7E4 /* MainTabBar.swift in Sources */,
+				AE3614EB243DFA9F00D3F7E4 /* MainBMOController.swift in Sources */,
 				AE3614E7243DF49600D3F7E4 /* UIView+Extension.swift in Sources */,
 				AE3614E1243DF48500D3F7E4 /* NetworkManager.swift in Sources */,
+				AE3614F2243E050200D3F7E4 /* TechnologyController.swift in Sources */,
 				AE3614DC243DF45B00D3F7E4 /* TopHeadlinesViewCell.swift in Sources */,
 				AE3614B9243DF28500D3F7E4 /* ViewController.swift in Sources */,
 				AE3614DB243DF45B00D3F7E4 /* TopHeadlineController.swift in Sources */,
 				AE3614D0243DF44600D3F7E4 /* TopHeadline.swift in Sources */,
 				AE3614DA243DF45B00D3F7E4 /* TopHeadlineViewModel.swift in Sources */,
 				AE3614B5243DF28500D3F7E4 /* AppDelegate.swift in Sources */,
+				AE3614F0243E025100D3F7E4 /* SportsController.swift in Sources */,
 				AE3614B7243DF28500D3F7E4 /* SceneDelegate.swift in Sources */,
 				AE3614E2243DF48500D3F7E4 /* WebService.swift in Sources */,
 				AE3614DE243DF47500D3F7E4 /* Protocols.swift in Sources */,

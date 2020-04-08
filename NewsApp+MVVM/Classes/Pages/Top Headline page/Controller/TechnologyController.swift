@@ -1,20 +1,19 @@
 //
-//  TopHeadlineController.swift
-//  NewsAppMVVM
+//  TechnologyController.swift
+//  NewsApp+MVVM
 //
 //  Created by rau4o on 4/8/20.
 //  Copyright © 2020 rau4o. All rights reserved.
 //
 
 import UIKit
-import SDWebImage
 
-private let topHeadlineCell = "cellId"
+private let techCellId = "cellId"
 private let rowHeight: CGFloat = 170
 private let spacingBetweenRow: CGFloat = 20
 
-class TopHeadlineController: UIViewController {
-
+class TechnologyController: UIViewController {
+    
     // MARK: - Properties
     
     let topHeadlineViewModel = TopHeadlineViewModel()
@@ -25,7 +24,7 @@ class TopHeadlineController: UIViewController {
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        collectionView.register(TopHeadlinesViewCell.self, forCellWithReuseIdentifier: topHeadlineCell)
+        collectionView.register(TopHeadlinesViewCell.self, forCellWithReuseIdentifier: techCellId)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
@@ -33,35 +32,35 @@ class TopHeadlineController: UIViewController {
     }()
     
     // MARK: - Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Top Headlines"
+
         layoutUI()
         topHeadlineViewModel.delegate = self
-        topHeadlineViewModel.fetchData(country: "us", category: "general")
+        topHeadlineViewModel.fetchData(country: "us", category: "technology")
         view.backgroundColor = .white
     }
-    
+
     // MARK: - Helper function
-    
+       
     private func layoutUI() {
         view.addSubview(collectionView)
-        
+       
         collectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
     }
 }
 
-// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+// MARK: - UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 
-extension TopHeadlineController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+extension TechnologyController: UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return topHeadlineViewModel.numberOfElements()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: topHeadlineCell, for: indexPath) as! TopHeadlinesViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: techCellId, for: indexPath) as! TopHeadlinesViewCell
         cell.backgroundColor = .clear
         let news = topHeadlineViewModel.getElement(at: indexPath.item)
         cell.configureCell(articles: news)
@@ -82,14 +81,15 @@ extension TopHeadlineController: UICollectionViewDelegate, UICollectionViewDataS
 
 // MARK: - TopHeadlineViewModelDelegate, TopHeadlineControllerDelegate
 
-extension TopHeadlineController: TopHeadlineViewModelDelegate {
+extension TechnologyController: TopHeadlineViewModelDelegate {
     func updateTopHeadlineData() {
         collectionView.reloadData()
     }
 }
 
-extension TopHeadlineController: TopHeadlineControllerDelegate {
+extension TechnologyController: TopHeadlineControllerDelegate {
     func updateData() {
-        topHeadlineViewModel.fetchData(country: "us", category: "general")
+        topHeadlineViewModel.fetchData(country: "us", category: "technology")
     }
 }
+

@@ -10,8 +10,12 @@ import Foundation
 
 class TopHeadlineViewModel {
     
+    // MARK: - Properties
+    
     var topHeadlineData: [Articles] = []
     weak var delegate: TopHeadlineViewModelDelegate?
+    
+    // MARK: - Helper function
     
     func numberOfElements() -> Int {
         return topHeadlineData.count
@@ -21,8 +25,10 @@ class TopHeadlineViewModel {
         return topHeadlineData[row]
     }
     
-    func fetchData() {
-        WebService.shared.fetchNews(country: "us", category: "general") { (articles, error) in
+    // MARK: - Fetch data API
+    
+    func fetchData(country: String, category: String) {
+        WebService.shared.fetchNews(country: country, category: category) { (articles, error) in
             if let error = error {
                 print(error.localizedDescription)
             }

@@ -22,7 +22,7 @@ class MainTabBar: UITabBarController {
     // MARK: - Helper function
     
     private func setupControllers() {
-        let topHeadlineController = UINavigationController(rootViewController: TopHeadlineController())
+        let topHeadlineController = UINavigationController(rootViewController: MainBMOController())
         topHeadlineController.tabBarItem = UITabBarItem(title: "Top Headline", image: #imageLiteral(resourceName: "home"), tag: 0)
         
         viewControllers = [topHeadlineController]

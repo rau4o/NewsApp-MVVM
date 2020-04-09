@@ -11,6 +11,7 @@ import UIKit
 
 enum NetworkManager {
     case getNews(country: String, category: String)
+    case getEverythingNews
 }
 
 extension NetworkManager: TargetType {
@@ -22,6 +23,8 @@ extension NetworkManager: TargetType {
         switch self {
             case .getNews:
                 return "top-headlines"
+            case .getEverythingNews:
+                return "everything"
         }
     }
     
@@ -37,6 +40,8 @@ extension NetworkManager: TargetType {
         switch self {
             case .getNews(let country, let category):
                 return .requestParameters(parameters: ["country": country, "apiKey": "f12fc7d8e0df4337a19981fea52f3811", "category": category, "pageSize": 15], encoding: URLEncoding.default)
+            case .getEverythingNews:
+                return .requestParameters(parameters: ["q": "bitcoin", "apiKey": "f12fc7d8e0df4337a19981fea52f3811", "pageSize": 15], encoding: URLEncoding.default)
         }
     }
     

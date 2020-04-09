@@ -83,7 +83,7 @@ extension TopHeadlineController: UICollectionViewDelegate, UICollectionViewDataS
 // MARK: - TopHeadlineViewModelDelegate, TopHeadlineControllerDelegate
 
 extension TopHeadlineController: TopHeadlineViewModelDelegate {
-    func updateTopHeadlineData() {
+    func updateViewModelData() {
         collectionView.reloadData()
     }
 }

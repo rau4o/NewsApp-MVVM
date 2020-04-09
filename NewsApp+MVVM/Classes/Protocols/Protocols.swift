@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TopHeadlineViewModelDelegate: class {
-    func updateTopHeadlineData()
+    func updateViewModelData()
 }
 
 protocol TopHeadlineControllerDelegate: class {

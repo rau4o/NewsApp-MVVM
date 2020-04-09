@@ -28,4 +28,22 @@ class WebService: NSObject {
             }
         }
     }
+    
+    func fetchEverything(completion: @escaping([Articles]?, Error?) -> Void) {
+        networkManager.request(.getEverythingNews) { (result) in
+            switch result {
+            case .success(let response):
+                do {
+                    let news = try JSONDecoder().decode(Everything.self, from: response.data).articles
+                    completion(news,nil)
+                } catch {
+                    print(error.localizedDescription)
+                    print("PZDC")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                print("PZDC 2")
+            }
+        }
+    }
 }

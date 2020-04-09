@@ -82,7 +82,7 @@ extension TechnologyController: UICollectionViewDataSource,UICollectionViewDeleg
 // MARK: - TopHeadlineViewModelDelegate, TopHeadlineControllerDelegate
 
 extension TechnologyController: TopHeadlineViewModelDelegate {
-    func updateTopHeadlineData() {
+    func updateViewModelData() {
         collectionView.reloadData()
     }
 }

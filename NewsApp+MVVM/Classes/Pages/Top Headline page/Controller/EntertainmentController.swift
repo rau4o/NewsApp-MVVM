@@ -83,7 +83,7 @@ extension EntertainmentController: UICollectionViewDelegate, UICollectionViewDat
 // MARK: - TopHeadlineViewModelDelegate, TopHeadlineControllerDelegate
 
 extension EntertainmentController: TopHeadlineViewModelDelegate {
-    func updateTopHeadlineData() {
+    func updateViewModelData() {
         collectionView.reloadData()
     }
 }

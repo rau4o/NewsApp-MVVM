@@ -12,17 +12,17 @@ class TopHeadlineViewModel {
     
     // MARK: - Properties
     
-    var topHeadlineData: [Articles] = []
+    var data: [Articles] = []
     weak var delegate: TopHeadlineViewModelDelegate?
     
     // MARK: - Helper function
     
     func numberOfElements() -> Int {
-        return topHeadlineData.count
+        return data.count
     }
     
     func getElement(at row: Int) -> Articles {
-        return topHeadlineData[row]
+        return data[row]
     }
     
     // MARK: - Fetch data API
@@ -31,14 +31,32 @@ class TopHeadlineViewModel {
         WebService.shared.fetchNews(country: country, category: category) { (articles, error) in
             if let error = error {
                 print(error.localizedDescription)
+                return
             }
             if let articles = articles {
                 for i in 0..<articles.count {
-                    self.topHeadlineData.append(articles[i])
+                    self.data.append(articles[i])
                 }
             }
             DispatchQueue.main.async {
-                self.delegate?.updateTopHeadlineData()
+                self.delegate?.updateViewModelData()
+            }
+        }
+    }
+    
+    func fetchEverythingData() {
+        WebService.shared.fetchEverything { (articles, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            if let articles = articles {
+                for i in 0..<articles.count {
+                    self.data.append(articles[i])
+                }
+            }
+            DispatchQueue.main.async {
+                self.delegate?.updateViewModelData()
             }
         }
     }

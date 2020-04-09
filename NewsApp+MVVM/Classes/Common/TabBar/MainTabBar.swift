@@ -25,6 +25,9 @@ class MainTabBar: UITabBarController {
         let topHeadlineController = UINavigationController(rootViewController: MainBMOController())
         topHeadlineController.tabBarItem = UITabBarItem(title: "Top Headline", image: #imageLiteral(resourceName: "home"), tag: 0)
         
-        viewControllers = [topHeadlineController]
+        let everythingController = UINavigationController(rootViewController: EverythingController())
+        everythingController.tabBarItem = UITabBarItem(title: "Everything", image: #imageLiteral(resourceName: "list"), tag: 1)
+        
+        viewControllers = [topHeadlineController,everythingController]
     }
 }
